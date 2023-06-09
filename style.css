@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root {
+  --Orange: hsl(25, 97%, 53%);
+  --White: hsl(0, 0%, 100%);
+  --Light-Grey: hsl(217, 12%, 63%);
+  --Medium-Grey: hsl(216, 12%, 54%);
+  --Dark-Blue: hsl(213, 19%, 18%);
+  --Very-Dark-Blue: hsl(216, 12%, 8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+}
+
+body {
+  font-size: 15px;
+  line-height: 24px;
+  background-color: var(--Very-Dark-Blue);
+  color: var(--Light-Grey);
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Overpass', sans-serif;
+}
+
+.card {
+  width: 412px;
+  height: 416px;
+  /* background-color: var(--Dark-Blue); */
+  border-radius: 30px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: radial-gradient(
+    circle,
+    rgba(35, 42, 52, 1) 0%,
+    rgba(24, 30, 39, 1) 83%
+  );
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card .first-step {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(-348px);
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 0.2s ease;
+}
+
+.card .first-step.active {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.card .circle.star {
+  margin-bottom: 24px;
+}
+
+.card .title {
+  color: var(--White);
+}
+
+.circle {
+  width: 51px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Dark-Blue);
+  border-radius: 50%;
+  transition: all 0.15s ease-in-out;
+}
+
+.scores .circle {
+  cursor: pointer;
+}
+
+.scores .circle:hover {
+  background-color: var(--Medium-Grey);
+  color: var(--White);
+}
+
+.scores ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  align-items: center;
+  color: var(--Medium-Grey);
+}
+
+.circle.active {
+  background-color: var(--Orange);
+  color: var(--White);
+}
+
+.scores .circle.active:hover {
+  background-color: var(--Orange);
+}
+
+button#submit {
+  background-color: var(--Orange);
+  color: var(--White);
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: 0;
+  text-transform: uppercase;
+  padding: 11px;
+  border-radius: 23px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+button#submit:hover {
+  background-color: var(--White);
+  color: var(--Orange);
+}
+
+.card .second-step {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateX(0);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out 0s, opacity 0.5s ease 0.3s;
+}
+
+.card .second-step.active {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+.second-step .results {
+  background-color: var(--Dark-Blue);
+  color: var(--Orange);
+  padding: 4px 20px;
+  border-radius: 22px;
+}
+
+.second-step .message {
+  width: 98%;
+}
+
+.attribution,
+.attribution a {
+  color: var(--White);
+  text-align: center;
+}
+
+@media screen and (max-width: 440px) {
+  .card {
+    width: 90vw;
+  }
+}
